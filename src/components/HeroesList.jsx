@@ -1,12 +1,16 @@
 import React from 'react';
-import { Grid } from '@mui/material';
-import { fetchHeroes } from '../services';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Grid, Container } from '@mui/material';
+import ActionAreaCard from './Card';
+import fetchHeroesAction from '../actions';
 
 class HeroesList extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      isFetching: true,
       heroes: [],
     }
 
@@ -14,35 +18,58 @@ class HeroesList extends React.Component {
   }
 
   componentDidMount() {
-    this.saveHeroesToState();
+    const { fetchHeroes } = this.props;
+    fetchHeroes()
+      .then(() => this.saveHeroesToState());
   }
 
   saveHeroesToState() {
-    fetchHeroes()
-      .then((heroes) => {
-        this.setState({
-          heroes,
-        });
-      })
+    const { heroes } = this.props;
+    this.setState({
+      heroes,
+    });
   }
 
   render() {
     const { heroes } = this.state;
     return (
-      <Grid container>
-        {
-          heroes.length > 0
-          && (
-            heroes.map((hero, index) => (
-            <Grid item key={ index }>
-              <p>{ hero.name }</p>
-            </Grid>
-            ))
-          )
-        }
-      </Grid>
+      <Container>
+        <Grid container>
+          {
+            heroes.length > 0
+            && (
+              heroes.map((hero, index) => (
+              <Grid
+                item
+                key={ index }
+                xs={12}
+                sm={6}
+                md={4}
+                lg={3}
+                xl={2}
+              >
+                <ActionAreaCard />
+              </Grid>
+              ))
+            )
+          }
+        </Grid>
+      </Container>
     )
   }
 }
 
-export default HeroesList;
+const mapStateToProps = ({ heroesList: { heroes } }) => ({
+  heroes,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchHeroes: () => dispatch(fetchHeroesAction()),
+})
+
+HeroesList.propTypes = {
+  heroes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  fetchHeroes: PropTypes.func.isRequired,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeroesList);
