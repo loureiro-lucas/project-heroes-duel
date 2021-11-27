@@ -15,7 +15,9 @@ const heroesList = (state = INITIAL_STATE, { type, heroes, heroName }) => {
   case SEARCH_HEROES:
     return {
       ...state,
-      searchHeroes: state.heroes.filter((current) => current.name.includes(heroName)),
+      searchHeroes: state.heroes.filter((current) => {
+        return current.name.toLowerCase().includes(heroName.toLowerCase());
+      }),
     }
   default:
     return state;
