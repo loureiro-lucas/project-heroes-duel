@@ -1,4 +1,5 @@
 {
+  "homepage": "https://loureiro-lucas.github.io/project-heroes-duel/",
   "name": "project-heroes",
   "version": "0.1.0",
   "private": true,
@@ -17,6 +18,8 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -41,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^3.2.3",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9"
