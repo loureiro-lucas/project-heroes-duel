@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/project-heroes-duel/static/js/main.b1b1e20a.chunk.js",
+    "main.js.map": "/project-heroes-duel/static/js/main.b1b1e20a.chunk.js.map",
+    "runtime-main.js": "/project-heroes-duel/static/js/runtime-main.9aa73a48.js",
+    "runtime-main.js.map": "/project-heroes-duel/static/js/runtime-main.9aa73a48.js.map",
+    "static/js/2.1301d6b7.chunk.js": "/project-heroes-duel/static/js/2.1301d6b7.chunk.js",
+    "static/js/2.1301d6b7.chunk.js.map": "/project-heroes-duel/static/js/2.1301d6b7.chunk.js.map",
+    "static/js/3.f990a694.chunk.js": "/project-heroes-duel/static/js/3.f990a694.chunk.js",
+    "static/js/3.f990a694.chunk.js.map": "/project-heroes-duel/static/js/3.f990a694.chunk.js.map",
+    "index.html": "/project-heroes-duel/index.html",
+    "static/js/2.1301d6b7.chunk.js.LICENSE.txt": "/project-heroes-duel/static/js/2.1301d6b7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9aa73a48.js",
+    "static/js/2.1301d6b7.chunk.js",
+    "static/js/main.b1b1e20a.chunk.js"
+  ]
+}
